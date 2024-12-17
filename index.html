@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farewell Coming Soon</title>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Georgia', serif;
+            background-color: #f9f9f9; /* Off-white background */
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/flower-fabric-1.png'); /* Subtle floral background */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Header Section */
+        header {
+            padding: 3rem 1rem;
+            background: linear-gradient(to right, #e07a5f, #f4a261); /* Terracotta red and light beige gradient */
+            border-bottom: 4px solid #f4a261;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: #fff;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: fadeIn 2s ease-in-out, textBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textBounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Coming Soon Text Animation */
+        .coming-soon {
+            margin-top: 2rem;
+            font-size: 3rem;
+            color: #f4a261; /* Cherry red color for "Coming Soon" */
+            animation: fadeIn 2s ease-in-out, glowingText 3s ease-in-out infinite;
+        }
+
+        @keyframes glowingText {
+            0% {
+                text-shadow: 0 0 10px #e07a5f, 0 0 20px #e07a5f, 0 0 30px #e07a5f;
+                color: #f4a261;
+            }
+            50% {
+                text-shadow: 0 0 20px #f4a261, 0 0 30px #f4a261, 0 0 40px #e07a5f;
+                color: #e07a5f;
+            }
+            100% {
+                text-shadow: 0 0 10px #e07a5f, 0 0 20px #e07a5f, 0 0 30px #f4a261;
+                color: #f4a261;
+            }
+        }
+
+        /* Button Styling */
+        button {
+            margin-top: 3rem;
+            padding: 1.2rem 2.5rem;
+            font-size: 1.3rem;
+            border: none;
+            border-radius: 50px;
+            background-color: #f4a261; /* Light beige */
+            color: white;
+            cursor: pointer;
+            box-shadow: 0px 5px 20px rgba(255, 121, 198, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e07a5f;
+            transform: scale(1.1);
+            box-shadow: 0px 10px 30px rgba(255, 88, 165, 0.6);
+        }
+
+        /* Quotes Section */
+        #quote-container {
+            margin: 2rem auto;
+            display: none;
+            background-color: #fff7f9; /* Soft pink background for quotes */
+            color: #4a4a4a;
+            padding: 2rem;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+            font-style: italic;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-50%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Instagram Section */
+        footer {
+            margin-top: 3rem;
+            background-color: #e3d5ca; /* Light beige background */
+            padding: 2rem;
+            border-top: 3px solid #f4a261;
+            box-shadow: 0px -4px 15px rgba(255, 88, 165, 0.3);
+        }
+
+        .instagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #f4a261;
+        }
+
+        .instagram a {
+            color: #e07a5f;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        .instagram a:hover {
+            text-decoration: underline;
+            color: #f4a261;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Farewell Party 2024</h1>
+        <p class="coming-soon">Coming Soon...</p>
+    </header>
+
+    <!-- Interactive Button for Friendship Quotes -->
+    <div>
+        <button onclick="showQuote()">Reveal Friendship Quote</button>
+        <div id="quote-container"></div>
+    </div>
+
+    <!-- Instagram Section -->
+    <footer>
+        <div class="instagram">
+            <p>Follow us for updates and sneak peeks:</p>
+            <a href="https://www.instagram.com/12th_.farewell/profilecard/?igsh=eGc4OGRybnFoMGwx" target="_blank">
+                @12th_.farewell
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Quotes -->
+    <script>
+        const quotes = [
+            "A friend is someone who knows all about you and still loves you.",
+            "Good friends are like stars. You don’t always see them, but you know they’re always there.",
+            "True friendship is never serene, but always worth it.",
+            "Friendship isn’t about who you’ve known the longest, it’s about who came and never left.",
+            "A sweet friendship refreshes the soul.",
+            "Friends are the family we choose for ourselves."
+        ];
+
+        let currentQuoteIndex = 0;
+
+        function showQuote() {
+            const container = document.getElementById("quote-container");
+            container.style.display = "block";
+            container.innerHTML = quotes[currentQuoteIndex];
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+        }
+    </script>
+
+</body></html>
